@@ -51,10 +51,10 @@ jobs:
         flags: 'g'
 
     - name: Beanstalk Deploy
-      uses: einaregilsson/beanstalk-deploy@v4
+      uses: einaregilsson/beanstalk-deploy@v9
       with:
-        aws_access_key: "${{secrets.AWS_ACCESS_KEY}}"
-        aws_secret_key: "${{secrets.AWS_SECRET_KEY}}"
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
         region: us-west-2
         application_name: eb-poc
         environment_name: node-express-env
