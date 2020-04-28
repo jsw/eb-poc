@@ -14,6 +14,12 @@ jobs:
         node-version: [12.16.3]
 
     steps:
+    - name: check awscli
+      run: aws --version
+
+    - name: check eb
+      run: eb --version
+
     - uses: actions/checkout@v1
 
     - name: Cache node modules
