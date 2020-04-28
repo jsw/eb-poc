@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy: matrix
+      node-version: [12.16.3]
 
     steps:
     - uses: actions/checkout@v1
@@ -19,14 +21,14 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
-#    - name: Node ${{ matrix.node-version }}
-#      uses: actions/setup-node@v1
-#      with:
-#        node-version: ${{ matrix.node-version }}
-#
-#    - name: Installing NPM
-#      run: npm install
-#
+    - name: Node ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+     - name: Installing NPM
+       run: npm install
+
 #    - name: Building application
 #      run: npm run build
 #
